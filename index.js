@@ -1,24 +1,14 @@
 const galleryContainer = document.getElementById('gallery-container')
-
-/*
-Challenge:
-1. Add functionality so that when a user 
-   clicks the share icon it turns green. 
-   Clicking it a second time should return 
-   it to white.
-*/
-
-
 let isLiked = false
 let isShared = false
 
-
+// This listens to all the click on the document/page
 document.addEventListener('click', function(e){
-    if(e.target.dataset.heart){
+    if(e.target.dataset.heart){       //This will trigger only when the like or heart button is clicked
         isLiked = !isLiked
         render()
     }
-    else if(e.target.dataset.share){
+    else if(e.target.dataset.share){  //This will trigger only when the share button is clicked
         isShared = !isShared
         render()
     }
@@ -28,8 +18,14 @@ function render(){
     
     let heartClass = ''
     let shareClass = ''
-    
-    if(isLiked){
+   
+    // when the like button is clicked, 
+    // the 'isLiked' will be set to true which triggers 
+    // the 'if statement' in order to assign 
+    // the CSS 'like' class to 'heartclass' variable
+    // the same thing happens to the share button
+
+    if(isLiked){  
         heartClass = 'liked'
     }
     
@@ -37,6 +33,11 @@ function render(){
         shareClass = 'shared'
     }
        
+// the 'hearClass' variable which holds the 
+// CSS 'like' class is rendered to the page as shown
+// and assigned to the 'imageHtml' variable
+// together with the 'shareClass'
+
     let imageHtml = `
     		<div id="image-1" class="img-container">
 			<img src="dino2.jpeg" alt="Man in front of dinosaur">
